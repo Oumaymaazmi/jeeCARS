@@ -6,6 +6,7 @@
 package bean;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,7 +24,7 @@ public class Representative implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
      private String name;
-    private String image;
+    private List<String> images;
 
     public String getName() {
         return name;
@@ -37,11 +38,15 @@ public class Representative implements Serializable {
         this.name = name;
     }
 
-    public Representative(Long id, String name, String image) {
-        this.id = id;
-        this.name = name;
-        this.image = image;
+    public List<String> getImages() {
+        return images;
     }
+
+    public void setImages(List<String> images) {
+        this.images = images;
+    }
+
+   
 
    
 
@@ -49,14 +54,9 @@ public class Representative implements Serializable {
         this.name = name;
     }
 
-    public String getImage() {
-        return image;
-    }
+   
 
-    public void setImage(String image) {
-        this.image = image;
-    }
-
+    
     public Long getId() {
         return id;
     }

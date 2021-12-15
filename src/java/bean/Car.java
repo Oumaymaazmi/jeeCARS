@@ -14,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 
 /**
@@ -32,8 +33,8 @@ public class Car implements Serializable {
     private Fuel fuel;
     @ManyToOne
     private Modele model;
-    @OneToMany
-    private List<Representative> representatives;
+    @OneToOne
+    private Representative representative;
     @ManyToOne
     private Transmission transmission;
     private int nombrePorte;
@@ -95,13 +96,15 @@ public class Car implements Serializable {
         return id;
     }
 
-    public List<Representative> getRepresentatives() {
-        return representatives; 
+    public Representative getRepresentative() {
+        return representative;
     }
 
-    public void setRepresentatives(List<Representative> representatives) {
-        this.representatives = representatives;
+    public void setRepresentative(Representative representative) {
+        this.representative = representative;
     }
+
+   
 
     public Transmission getTransmission() {
         return transmission;
