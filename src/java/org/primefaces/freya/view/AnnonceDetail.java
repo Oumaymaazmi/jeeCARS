@@ -28,7 +28,6 @@ import org.primefaces.model.DualListModel;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -40,9 +39,13 @@ import service.AnnonceFacade;
 import service.CarFacade;
 import service.ModeleFacade;
 
+/**
+ *
+ * @author a
+ */
 @Named
 @ViewScoped
-public class ListDemoView implements Serializable {
+public class AnnonceDetail implements Serializable {
 
     private List<Annonce> annonces;
     @EJB
@@ -54,21 +57,18 @@ public class ListDemoView implements Serializable {
 
     private List<Product> products;
 
+    private Annonce annonceDetail;
+
     private double price = 65.00;
 
     @PostConstruct
     public void init() {
 
-        this.annonces = this.annonceFacade.findAll();
-
-        System.out.println("caaaars " + annonces.size());
-
-    }
-
-    public void sendDetaisAnnonce(Annonce annonce) {
-        FacesContext.getCurrentInstance().getExternalContext()
-                .getRequestMap().put("annonce", annonce);
-      //  return "annonce";
+        System.out.println("frooom annonce ");
+        annonceDetail = (Annonce) FacesContext.getCurrentInstance().getExternalContext()
+                .getRequestMap().get("annonce");
+//               System.out.println("frooom annonce " +annonceDetail.getCar().getMatricule());
+       // System.out.println("hahia annonce " + this.getAnnonceDetail().getCar().getMatricule());
 
     }
 
@@ -82,16 +82,6 @@ public class ListDemoView implements Serializable {
 
     public List<Product> getProducts() {
         return products;
-    }
-
-   
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
     }
 
     public List<Annonce> getAnnonces() {
@@ -108,6 +98,22 @@ public class ListDemoView implements Serializable {
 
     public void setAnnonceFacade(AnnonceFacade annonceFacade) {
         this.annonceFacade = annonceFacade;
+    }
+
+    public Annonce getAnnonceDetail() {
+        return annonceDetail;
+    }
+
+    public void setAnnonceDetail(Annonce annonceDetail) {
+        this.annonceDetail = annonceDetail;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
 }

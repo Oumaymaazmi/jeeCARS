@@ -11,52 +11,58 @@
         <div class="p-grid list-demo">
             <div class="p-col-12">
                 <div class="card">
-                    <h5>Our Cars </h5>
-                    <p:dataView var="car" value="#{listDemoView.cars}" gridIcon="pi pi-th-large" listIcon="pi pi-bars"
-                        paginator="true" rows="10" layout="grid" paginatorPosition="bottom">
+                    <h5>Our Annonce </h5>
+                    <h5>#{listDemoView.price} </h5>
+
+                    <p:dataView var="annonce" value="#{listDemoView.annonces}" gridIcon="pi pi-th-large" listIcon="pi pi-bars"
+                                paginator="true" rows="10" layout="grid" paginatorPosition="bottom">
                         <p:dataViewGridItem>
                             <div class="product-grid-item card">
                                 <div class="product-grid-item-top">
                                     <div>
                                         <i class="pi pi-tag product-category-icon"></i>
-                                        <span class="product-category">#{car.model}</span>
+                                        <span class="product-category">#{annonce.car.matricule}</span>
                                     </div>
                                 </div>
                                 <div class="product-grid-item-content">
-                                    <p:graphicImage name="images/car/#{car.img}" library="demo" />
-                                    <div class="product-name">#{car.modelx}</div>
-                                    <div class="product-description">#{car.matricule}</div>
+                                    <!--<p:graphicImage name="images/car/" library="demo" />-->
+                                    <div class="product-name">#{annonce.car.model}</div>
+                                    <div class="product-description">#{annonce.car.prix}</div>
                                 </div>
                                 <div class="product-grid-item-bottom">
                                     <h:outputText value="#{listDemoView.price}" styleClass="product-price">
                                         <f:convertNumber currencySymbol="$" type="currency" />
                                     </h:outputText>
-                                    <p:commandButton type="button" icon="pi pi-shopping-cart" />
+                                    <h:form>
+                                        <h:commandButton value="redirect" action="annonceDetail.xhtml?{annonce}" actionListener="#{listDemoView.sendDetaisAnnonce(annonce)}"  /><br/>
+
+                                    </h:form>
+
+                                    <p:commandButton value="detais" icon="pi pi-plus" />
                                 </div>
                             </div>
                         </p:dataViewGridItem>
-                
+<!--
                         <p:dataViewListItem>
                             <div class="product-list-item">
-                                <p:graphicImage name="images/car/#{car.img}" library="demo" />
+                                <p:graphicImage name="images/car/" library="demo" />
                                 <div class="product-list-detail">
-                                     <div class="product-name">#{car.modele}</div>
-                                    <div class="product-description">#{car.matricule}</div>
+                                    <div class="product-name"></div>
+                                    <div class="product-description"></div>
                                     <i class="pi pi-tag product-category-icon"></i><span class="product-category">lalal</span>
                                 </div>
                                 <div class="product-list-action">
-                                    <h:outputText value="#{listDemoView.price}" styleClass="product-price">
+                                    <h:outputText value="" styleClass="product-price">
                                         <f:convertNumber currencySymbol="$" type="currency" />
                                     </h:outputText>
-                                    <p:commandButton type="button" icon="pi pi-shopping-cart" value="Add to Cart" />
                                 </div>
                             </div>
-                        </p:dataViewListItem>
+                        </p:dataViewListItem>-->
                     </p:dataView>
                 </div>
             </div>
 
-        
+
         </div>
     </ui:define>
 
