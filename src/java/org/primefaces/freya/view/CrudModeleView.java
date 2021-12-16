@@ -28,7 +28,8 @@ import service.ModeleFacade;
 public class CrudModeleView implements Serializable {
 
     private List<Modele> models;
-
+    private String marque;
+    
     private Modele selectedModel;
 
     private List<Modele> selectedModels;
@@ -41,6 +42,13 @@ public class CrudModeleView implements Serializable {
     public void init() {
 //        this.cars = this.carService.getCars();
         this.models = this.modeleFacade.findAll();
+    }
+   public String getMarque() {
+        return marque;
+    }
+
+    public void setMarque(String marque) {
+        this.marque = marque;
     }
 
     public List<Modele> getModels() {
@@ -71,8 +79,12 @@ public class CrudModeleView implements Serializable {
     ec.redirect(((HttpServletRequest) ec.getRequest()).getRequestURI());
 }
     public void saveModel() throws IOException {
+        System.out.println("saving model");
         if (this.selectedModel.getId() == null) {
 //            this.cars.add(this.selectedCar);
+            Marque m1=new Marque();
+            m1.setLibelle(this.marque);
+            this.selectedModel.setMarque(m1);
             this.selectedModel.setId((long) modeleFacade.findAll().size() + 1);
             System.out.println(selectedModel.getLibelle());
             this.modeleFacade.create(selectedModel);
@@ -82,7 +94,6 @@ public class CrudModeleView implements Serializable {
             this.modeleFacade.edit(selectedModel);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Modele Updated"));
         }
-
         PrimeFaces.current().executeScript("PF('manageProductDialog').hide()");
         PrimeFaces.current().ajax().update("form:messages", "form:dt-models");
     }
