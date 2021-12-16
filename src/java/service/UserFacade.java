@@ -6,6 +6,7 @@
 package service;
 
 import bean.User;
+import controller.util.AES;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -24,12 +25,18 @@ public class UserFacade extends AbstractFacade<User> {
     }
 
     public int seConnecter(String login, String password) {
-        User loadedUser = findBylogin(login);
+         User loadedUser = findBylogin(login);
+        String encodedPassword=AES.encrypt(password,"ssshhhhhhhhhhh!!!!");
+        System.out.println(encodedPassword);
         if (loadedUser == null) {
+             System.out.println("no user found");
             return -1;
-        } else if (!loadedUser.getPassword().equals(password)) {
+           
+        } else if (!loadedUser.getPassword().equals(encodedPassword)) {
+            System.out.println("wrong password");
             return -2;
         } else {
+            System.out.println("logged in");
             return 1;
         }
     }
