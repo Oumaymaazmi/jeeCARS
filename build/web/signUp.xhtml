@@ -29,10 +29,10 @@
                 <p:inputText id="firstName" value="#{signUpView.selectedUser.firstName}" placeholder="First Name" />
                 <p:inputText id="SecondeName" value="#{signUpView.selectedUser.lastName}" placeholder="Last Name" />
                 <p:inputText id="email" value="#{signUpView.selectedUser.email}" placeholder="Email" />
-                <p:inputText id="phone" value="#{signUpView.selectedUser.phone}" placeholder="Phone Number"  />
+                <p:inputText id="phone" value="#{signUpView.selectedUser.phone}" placeholder="Email"  />
 
                             
-                <p:commandButton value="Sign up" actionListener="#{signUpView.signUpUser()}" type="button" />
+                <p:commandButton value="Sign Up" action="dashboard.xhtml?" actionListener="#{signUpView.signUpUser()}"  />
                 <a href="#">forget password?</a>
                 <p>Do you have an account,  <a href="./login.xhtml">sign in</a></p>
             </div>
