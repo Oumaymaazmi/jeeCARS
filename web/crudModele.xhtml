@@ -91,7 +91,7 @@
                                     </div>
                                    <div class="p-field">
                                         <p:outputLabel for="marqueS">Marque :</p:outputLabel>
-                                        <p:selectOneMenu id="marqueS" value="#{crudModeleView.selectedModel.marque}">
+                                        <p:selectOneMenu id="marqueS" value="#{crudModeleView.marque}">
                                             <f:selectItems   value="#{crudMarqueView.marques}" var="marque" itemLabel="#{marque.libelle}" itemValue="#{marque}" />
 
                                         </p:selectOneMenu>

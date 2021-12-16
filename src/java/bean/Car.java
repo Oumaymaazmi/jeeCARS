@@ -8,6 +8,7 @@ package bean;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,20 +30,20 @@ public class Car implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String matricule;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Fuel fuel;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Modele model;
     @OneToOne
     private Representative representative;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Transmission transmission;
     private int nombrePorte;
-    private int puissanceFiscale;   
+    private int puissanceFiscale;
     private double kilometrage;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dateAchat;
-    private double prix;
+
 
     @OneToMany(mappedBy = "car")
     private List<DemandeLocationDetail> demandeLocationDetails;
@@ -54,7 +55,9 @@ public class Car implements Serializable {
     public void setDemandeLocationDetails(List<DemandeLocationDetail> demandeLocationDetails) {
         this.demandeLocationDetails = demandeLocationDetails;
     }
-
+    
+    
+    
     public String getMatricule() {
         return matricule;
     }
@@ -75,6 +78,8 @@ public class Car implements Serializable {
         return fuel;
     }
 
+    
+
     public void setFuel(Fuel fuel) {
         this.fuel = fuel;
     }
@@ -86,6 +91,7 @@ public class Car implements Serializable {
     public void setModel(Modele model) {
         this.model = model;
     }
+    
 
     public Long getId() {
         return id;
@@ -98,6 +104,8 @@ public class Car implements Serializable {
     public void setRepresentative(Representative representative) {
         this.representative = representative;
     }
+
+   
 
     public Transmission getTransmission() {
         return transmission;
@@ -131,16 +139,10 @@ public class Car implements Serializable {
         this.kilometrage = kilometrage;
     }
 
+  
+
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public double getPrix() {
-        return prix;
-    }
-
-    public void setPrix(double prix) {
-        this.prix = prix;
     }
 
     @Override

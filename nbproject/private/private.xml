@@ -2,24 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/landing.xhtml</file>
-            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/src/java/service/CarFacade.java</file>
-            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/WEB-INF/menu.xhtml</file>
-            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/crud.xhtml</file>
-            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/src/java/org/primefaces/freya/view/CrudDemoView.java</file>
-            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/src/java/org/primefaces/freya/view/ListDemoView.java</file>
-            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/WEB-INF/template.xhtml</file>
-            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/src/java/bean/Annonce.java</file>
-            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/src/java/service/AnnonceFacade.java</file>
-            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/list.xhtml</file>
-            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/src/java/service/AbstractFacade.java</file>
-            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/src/java/bean/Car.java</file>
-            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/WEB-INF/rightpanel.xhtml</file>
-            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/annonceDetail.xhtml</file>
-            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/src/java/org/primefaces/freya/view/AnnonceDetail.java</file>
-            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/WEB-INF/pretty-config.xml</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

@@ -6,6 +6,7 @@
 package bean;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,7 +25,7 @@ public class Modele implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String libelle;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Marque marque;
 
     public Marque getMarque() {
