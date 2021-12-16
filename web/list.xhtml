@@ -1,0 +1,63 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">Lists</ui:define>
+
+    <ui:define name="content">
+        <div class="p-grid list-demo">
+            <div class="p-col-12">
+                <div class="card">
+                    <h5>Our Cars </h5>
+                    <p:dataView var="car" value="#{listDemoView.cars}" gridIcon="pi pi-th-large" listIcon="pi pi-bars"
+                        paginator="true" rows="10" layout="grid" paginatorPosition="bottom">
+                        <p:dataViewGridItem>
+                            <div class="product-grid-item card">
+                                <div class="product-grid-item-top">
+                                    <div>
+                                        <i class="pi pi-tag product-category-icon"></i>
+                                        <span class="product-category">#{car.model}</span>
+                                    </div>
+                                </div>
+                                <div class="product-grid-item-content">
+                                    <p:graphicImage name="images/car/#{car.img}" library="demo" />
+                                    <div class="product-name">#{car.modelx}</div>
+                                    <div class="product-description">#{car.matricule}</div>
+                                </div>
+                                <div class="product-grid-item-bottom">
+                                    <h:outputText value="#{listDemoView.price}" styleClass="product-price">
+                                        <f:convertNumber currencySymbol="$" type="currency" />
+                                    </h:outputText>
+                                    <p:commandButton type="button" icon="pi pi-shopping-cart" />
+                                </div>
+                            </div>
+                        </p:dataViewGridItem>
+                
+                        <p:dataViewListItem>
+                            <div class="product-list-item">
+                                <p:graphicImage name="images/car/#{car.img}" library="demo" />
+                                <div class="product-list-detail">
+                                     <div class="product-name">#{car.modele}</div>
+                                    <div class="product-description">#{car.matricule}</div>
+                                    <i class="pi pi-tag product-category-icon"></i><span class="product-category">lalal</span>
+                                </div>
+                                <div class="product-list-action">
+                                    <h:outputText value="#{listDemoView.price}" styleClass="product-price">
+                                        <f:convertNumber currencySymbol="$" type="currency" />
+                                    </h:outputText>
+                                    <p:commandButton type="button" icon="pi pi-shopping-cart" value="Add to Cart" />
+                                </div>
+                            </div>
+                        </p:dataViewListItem>
+                    </p:dataView>
+                </div>
+            </div>
+
+        
+        </div>
+    </ui:define>
+
+</ui:composition>
