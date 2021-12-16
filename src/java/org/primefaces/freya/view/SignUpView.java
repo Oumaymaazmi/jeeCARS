@@ -9,6 +9,8 @@ import bean.User;
 import controller.util.AES;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -23,7 +25,7 @@ import service.UserFacade;
 public class SignUpView implements Serializable{
      final String secretKey = "ssshhhhhhhhhhh!!!!";
     private String pass="";
-    private String error;
+    private String error="";
     private User selectedUser;
     
      @Inject
@@ -68,12 +70,11 @@ public class SignUpView implements Serializable{
              if(this.pass.equals(this.selectedUser.getPassword())){
                  selectedUser.setPassword(AES.encrypt(selectedUser.getPassword(), secretKey));
                  this.userFacade.create(selectedUser);
-             }else{
-             this.error="the password does not match";
-            }
-         }else{
-             this.error="please confirm the password";
+             }
          }
-          return "/dashboard?faces-redirect=true";
+        
+        return "/dashboard";
+     
+         
      }
 }
