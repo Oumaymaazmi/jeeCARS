@@ -6,6 +6,7 @@
 package bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
@@ -33,12 +34,12 @@ public class Car implements Serializable {
     private Fuel fuel;
     @ManyToOne
     private Modele model;
-    @OneToOne
-    private Representative representative;
+    @OneToMany(mappedBy = "car")
+    private List<Representative> representatives;
     @ManyToOne
     private Transmission transmission;
     private int nombrePorte;
-    private int puissanceFiscale;   
+    private int puissanceFiscale;
     private double kilometrage;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dateAchat;
@@ -91,12 +92,13 @@ public class Car implements Serializable {
         return id;
     }
 
-    public Representative getRepresentative() {
-        return representative;
+    public List<Representative> getRepresentatives() {
+        return representatives;
     }
 
-    public void setRepresentative(Representative representative) {
-        this.representative = representative;
+    public void setRepresentatives(List<Representative> representatives) {
+
+        this.representatives = representatives;
     }
 
     public Transmission getTransmission() {

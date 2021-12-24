@@ -93,7 +93,6 @@ public class CrudDemoView implements Serializable {
     public void upload(FileUploadEvent event) {
         this.file = event.getFile();
         System.out.println("imaage " + this.file.getFileName());
-       // this.selectedCar.setImg(this.file.getFileName());
 
     }
 

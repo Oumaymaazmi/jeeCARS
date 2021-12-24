@@ -28,10 +28,14 @@ import org.primefaces.model.DualListModel;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.view.ViewScoped;
@@ -44,7 +48,7 @@ import service.ModeleFacade;
  * @author a
  */
 @Named
-@ViewScoped
+@SessionScoped
 public class AnnonceDetail implements Serializable {
 
     private List<Annonce> annonces;
@@ -57,19 +61,33 @@ public class AnnonceDetail implements Serializable {
 
     private List<Product> products;
 
-    private Annonce annonceDetail;
+    private Annonce detail;
 
     private double price = 65.00;
 
     @PostConstruct
     public void init() {
-
-        System.out.println("frooom annonce ");
-        annonceDetail = (Annonce) FacesContext.getCurrentInstance().getExternalContext()
-                .getRequestMap().get("annonce");
+        //        detail = (Annonce) FacesContext.getCurrentInstance().getExternalContext()
+//                .getRequestMap().get("annonce");
 //               System.out.println("frooom annonce " +annonceDetail.getCar().getMatricule());
-       // System.out.println("hahia annonce " + this.getAnnonceDetail().getCar().getMatricule());
+        // System.out.println("hahia annonce " + this.getAnnonceDetail().getCar().getMatricule());
 
+    }
+
+    public void sendData(ActionEvent event) {
+
+        Annonce detaill = (Annonce) event.getComponent().getAttributes().get("detail");
+        this.setDetail(detaill);
+        System.out.println("image " + detaill.getCar().getRepresentatives().size());
+
+        System.out.println("data = " + this.detail.getUser().getPhone());
+//         Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+//        String test = params.get("annonce");
+//        return test;
+    }
+
+    public String afficher() {
+        return this.getDetail().getCar().getMatricule();
     }
 
     public DualListModel<String> getCities1() {
@@ -100,12 +118,12 @@ public class AnnonceDetail implements Serializable {
         this.annonceFacade = annonceFacade;
     }
 
-    public Annonce getAnnonceDetail() {
-        return annonceDetail;
+    public Annonce getDetail() {
+        return detail;
     }
 
-    public void setAnnonceDetail(Annonce annonceDetail) {
-        this.annonceDetail = annonceDetail;
+    public void setDetail(Annonce detail) {
+        this.detail = detail;
     }
 
     public double getPrice() {

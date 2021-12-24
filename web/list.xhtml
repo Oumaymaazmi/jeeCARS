@@ -12,7 +12,6 @@
             <div class="p-col-12">
                 <div class="card">
                     <h5>Our Annonce </h5>
-                    <h5>#{listDemoView.price} </h5>
 
                     <p:dataView var="annonce" value="#{listDemoView.annonces}" gridIcon="pi pi-th-large" listIcon="pi pi-bars"
                                 paginator="true" rows="10" layout="grid" paginatorPosition="bottom">
@@ -25,7 +24,7 @@
                                     </div>
                                 </div>
                                 <div class="product-grid-item-content">
-                                    <!--<p:graphicImage name="images/car/" library="demo" />-->
+                                    <p:graphicImage name="images/annonceCar/dacia-1.jpg" library="demo" />
                                     <div class="product-name">#{annonce.car.model}</div>
                                     <div class="product-description">#{annonce.car.prix}</div>
                                 </div>
@@ -34,7 +33,9 @@
                                         <f:convertNumber currencySymbol="$" type="currency" />
                                     </h:outputText>
                                     <h:form>
-                                        <h:commandButton value="redirect" action="annonceDetail.xhtml?{annonce}" actionListener="#{listDemoView.sendDetaisAnnonce(annonce)}"  /><br/>
+                                        <h:commandButton value="redirect" action="annonceDetail.xhtml?faces-redirect=true" actionListener="#{annonceDetail.sendData}"  >
+                                            <f:attribute name="detail" value="#{annonce}" />
+                                        </h:commandButton>
 
                                     </h:form>
 
@@ -42,22 +43,22 @@
                                 </div>
                             </div>
                         </p:dataViewGridItem>
-<!--
-                        <p:dataViewListItem>
-                            <div class="product-list-item">
-                                <p:graphicImage name="images/car/" library="demo" />
-                                <div class="product-list-detail">
-                                    <div class="product-name"></div>
-                                    <div class="product-description"></div>
-                                    <i class="pi pi-tag product-category-icon"></i><span class="product-category">lalal</span>
-                                </div>
-                                <div class="product-list-action">
-                                    <h:outputText value="" styleClass="product-price">
-                                        <f:convertNumber currencySymbol="$" type="currency" />
-                                    </h:outputText>
-                                </div>
-                            </div>
-                        </p:dataViewListItem>-->
+                        <!--
+                                                <p:dataViewListItem>
+                                                    <div class="product-list-item">
+                                                        <p:graphicImage name="images/car/" library="demo" />
+                                                        <div class="product-list-detail">
+                                                            <div class="product-name"></div>
+                                                            <div class="product-description"></div>
+                                                            <i class="pi pi-tag product-category-icon"></i><span class="product-category">lalal</span>
+                                                        </div>
+                                                        <div class="product-list-action">
+                                                            <h:outputText value="" styleClass="product-price">
+                                                                <f:convertNumber currencySymbol="$" type="currency" />
+                                                            </h:outputText>
+                                                        </div>
+                                                    </div>
+                                                </p:dataViewListItem>-->
                     </p:dataView>
                 </div>
             </div>

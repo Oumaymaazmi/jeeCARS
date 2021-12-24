@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -24,7 +25,15 @@ public class Representative implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
      private String name;
-    private List<String> images;
+    private String image;
+    @ManyToOne
+    private Car car;
+
+    public Representative(String image) {
+        this.image = image;
+    }
+    
+    
 
     public String getName() {
         return name;
@@ -38,13 +47,25 @@ public class Representative implements Serializable {
         this.name = name;
     }
 
-    public List<String> getImages() {
-        return images;
+    public String getImage() {
+        return image;
     }
 
-    public void setImages(List<String> images) {
-        this.images = images;
+    public void setImage(String image) {
+        this.image = image;
     }
+
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
+    }
+
+  
+
+    
 
    
 

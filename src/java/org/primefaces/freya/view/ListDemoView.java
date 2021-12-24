@@ -33,15 +33,19 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
+import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.view.ViewScoped;
+import org.primefaces.freya.domain.Representative;
 import service.AnnonceFacade;
 import service.CarFacade;
 import service.ModeleFacade;
 
-@Named
-@ViewScoped
+@ManagedBean
+@SessionScoped
+
 public class ListDemoView implements Serializable {
 
     private List<Annonce> annonces;
@@ -61,14 +65,15 @@ public class ListDemoView implements Serializable {
 
         this.annonces = this.annonceFacade.findAll();
 
-        System.out.println("caaaars " + annonces.size());
+     
 
     }
 
-    public void sendDetaisAnnonce(Annonce annonce) {
-        FacesContext.getCurrentInstance().getExternalContext()
-                .getRequestMap().put("annonce", annonce);
-      //  return "annonce";
+    public String sendDetaisAnnonce(Annonce annonce) {
+
+        Annonce test = (Annonce) FacesContext.getCurrentInstance().getExternalContext()
+                .getRequestMap().put("annonce", "data");
+        return "detail";
 
     }
 
@@ -83,8 +88,6 @@ public class ListDemoView implements Serializable {
     public List<Product> getProducts() {
         return products;
     }
-
-   
 
     public double getPrice() {
         return price;
