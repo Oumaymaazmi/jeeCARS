@@ -37,6 +37,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.view.ViewScoped;
 import service.AnnonceFacade;
+import service.AnnonceFilterProcess;
 import service.CarFacade;
 import service.ModeleFacade;
 
@@ -47,6 +48,8 @@ public class ListDemoView implements Serializable {
     private List<Annonce> annonces;
     @EJB
     private AnnonceFacade annonceFacade;
+    @EJB
+    private AnnonceFilterProcess annonceFilterProcess;
 
     private DualListModel<String> cities1;
 
@@ -58,9 +61,10 @@ public class ListDemoView implements Serializable {
 
     @PostConstruct
     public void init() {
+//    Date dateAnnonce, String fuel, String model, String transmission, int nombrePorte, int puissance, int kilometrage, double prix, Date dateAchat) {
 
         this.annonces = this.annonceFacade.findAll();
-
+        this.annonceFilterProcess.search(null,"diesel",null,"automatic",0,0,0,0,null);
         System.out.println("caaaars " + annonces.size());
 
     }
