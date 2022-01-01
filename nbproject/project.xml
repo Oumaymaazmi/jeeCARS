@@ -27,7 +27,7 @@
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.classmate-0.8.0.jar}</file>
+                    <file>${file.reference.classmate-0.8.0.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
@@ -39,19 +39,19 @@
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.geronimo-annotation_1.3_spec-1.0.jar}</file>
+                    <file>${file.reference.geronimo-annotation_1.3_spec-1.0.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.geronimo-atinject_1.0_spec-1.0.jar}</file>
+                    <file>${file.reference.geronimo-atinject_1.0_spec-1.0.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.geronimo-interceptor_1.2_spec-1.0.jar}</file>
+                    <file>${file.reference.geronimo-interceptor_1.2_spec-1.0.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.geronimo-jcdi_2.0_spec-1.1.jar}</file>
+                    <file>${file.reference.geronimo-jcdi_2.0_spec-1.1.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
@@ -79,15 +79,15 @@
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.hibernate-validator-5.0.1.Final.jar}</file>
+                    <file>${file.reference.hibernate-validator-5.0.1.Final.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.itext-2.1.7.jar}</file>
+                    <file>${file.reference.itext-2.1.7.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.jakarta.faces-2.3.13.jar}</file>
+                    <file>${file.reference.jakarta.faces-2.3.13.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
@@ -103,7 +103,7 @@
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.jboss-logging-3.1.1.GA.jar}</file>
+                    <file>${file.reference.jboss-logging-3.1.1.GA.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
@@ -119,31 +119,31 @@
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.openwebbeans-el22-2.0.12.jar}</file>
+                    <file>${file.reference.openwebbeans-el22-2.0.12.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.openwebbeans-impl-2.0.12.jar}</file>
+                    <file>${file.reference.openwebbeans-impl-2.0.12.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.openwebbeans-jsf-2.0.12.jar}</file>
+                    <file>${file.reference.openwebbeans-jsf-2.0.12.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.openwebbeans-spi-2.0.12.jar}</file>
+                    <file>${file.reference.openwebbeans-spi-2.0.12.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.openwebbeans-web-2.0.12.jar}</file>
+                    <file>${file.reference.openwebbeans-web-2.0.12.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.prettyfaces-jsf2-3.3.3.jar}</file>
+                    <file>${file.reference.prettyfaces-jsf2-3.3.3.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.primefaces-8.0.jar}</file>
+                    <file>${file.reference.primefaces-8.0.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
@@ -155,7 +155,7 @@
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.validation-api-1.1.0.Final.jar}</file>
+                    <file>${file.reference.validation-api-1.1.0.Final.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
@@ -163,11 +163,11 @@
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.xbean-asm7-shaded-4.13.jar}</file>
+                    <file>${file.reference.xbean-asm7-shaded-4.13.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.xbean-finder-shaded-4.13.jar}</file>
+                    <file>${file.reference.xbean-finder-shaded-4.13.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>
