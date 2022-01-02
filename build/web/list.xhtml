@@ -9,66 +9,87 @@
 
     <ui:define name="content">
         <div class="p-grid list-demo">
-            <div class="p-col-12">
-                <div class="card"></div>
+            <div class="p-col-12 ">
+                <div class="card">
+                    <h5>Filters</h5>
+                    <h:form id="filter">
+                        <div style="margin-bottom: 20px">
+                            <p:selectOneMenu class="p-col-6 p-md-2 " value="#{listDemoView.fuelSelected}" label="Fuel" style="margin-right: 15px">
+                                <f:selectItem itemLabel="Fuel" itemDisabled="true" itemValue="#{null}" />
+                                <f:selectItem itemLabel="All" itemValue="0" />
+                                <f:selectItems value="#{listDemoView.fuels}" var="fuelItem" itemLabel="#{fuelItem.libelle}" itemValue="#{fuelItem.id}"/>
+                            </p:selectOneMenu>    
+                            <p:selectOneMenu class="p-col-6 p-md-3" value="#{listDemoView.marqueSelected}" style="margin-right: 15px">
+                                <f:selectItem itemLabel="Brand" itemDisabled="true" itemValue="#{null}" />
+                                <f:selectItem itemLabel="All" itemValue="0" />
+                                <f:selectItems value="#{listDemoView.marques}" var="marqueItem" itemLabel="#{marqueItem.libelle}" itemValue="#{marqueItem.id}"/>
+                            </p:selectOneMenu>   
+                            <p:selectOneMenu class="p-col-6 p-md-3" value="#{listDemoView.transmission}" style="margin-right: 15px">
+                                <f:selectItem itemLabel="Transmission"  itemDisabled="true" itemValue="#{null}"/>
+                                <f:selectItem itemLabel="All" itemValue="0" />
+                                <f:selectItems value="#{listDemoView.transmissions}" var="transmissionItem" itemLabel="#{transmissionItem.libelle}" itemValue="#{transmissionItem.id}"/>
+                            </p:selectOneMenu>   
+                            <p:spinner size="35" style="margin-bottom: 24px" value="#{listDemoView.puissance eq 0 ? null : listDemoView.puissance}" placeholder="Fiscal Power" max="10000" min="0"/>
+                        </div>
+                            
+                        <div class="p-grid p-formgrid">
+                            <p:calendar showOn="button" size="22" value="#{listDemoView.dateAchatSelected}" pattern="yyyy-MM-dd" style="margin-left: 15px" showButtonPanel="true" placeholder="Fabrication Date"/>
+                            <p:spinner class="p-col-6 p-md-3 placeholder" size="44" value="#{listDemoView.porteSelected eq 0 ? null : listDemoView.porteSelected}" style="margin-left: 8px" placeholder="Doors count" max="6" min="0"/>
+                            <p:spinner class="p-col-6 p-md-3 placeholder" size="40" value="#{listDemoView.priceSelected eq 0 ? null : listDemoView.priceSelected}" style="margin-left: 8px" placeholder="Price" max="1000000000" min="0"/>
+                            <p:spinner class="p-col-6 p-md-3 placeholder" size="40" value="#{listDemoView.kilometrage eq 0 ? null : listDemoView.kilometrage}" style="margin-left: 8px" placeholder="Millage" max="1000000000" min="0"/>
+                        </div>
+
+                        <h:commandLink  class="btn btn-secondary btn-block no-radius font-weight-bold" action = "#{listDemoView.search()}" >
+                            <p:commandButton style="margin-top: 30px; margin-left: auto;display: block;margin-right: 73px" type="button" value="Filter"/>
+                            <f:ajax  execute='filter' render='filter'  />  
+                            <f:ajax   render="annoncesDiv"  />  
+                        </h:commandLink>
+
+                    
+                    </h:form>
+                </div>
             </div>
         </div>
         <div class="p-grid list-demo">
             <div class="p-col-12">
                 <div class="card">
-                    <h5>Our Annonce </h5>
-                    <h5>#{listDemoView.price} </h5>
+                    <h5>Our announcements </h5>
+                    <h:panelGroup id="annoncesDiv">
+                        <p:dataView var="annonce" value="#{listDemoView.annonces}" gridIcon="pi pi-th-large" listIcon="pi pi-bars"
+                                    paginator="true" rows="10" layout="grid" paginatorPosition="bottom">
+                            <p:dataViewGridItem>
+                                <div class="product-grid-item card">
+                                    <div class="product-grid-item-top">
+                                        <div>
+                                            <i class="pi pi-tag product-category-icon"></i>
+                                            <span class="product-category">#{annonce.car.matricule}</span>
+                                        </div>
+                                    </div>
+                                    <div class="product-grid-item-content">
+                                        <!--<p:graphicImage name="images/car/" library="demo" />-->
+                                        <div class="product-name">#{annonce.car.model}</div>
+                                        <div class="product-description">#{annonce.car.prix}</div>
+                                    </div>
+                                    <div class="product-grid-item-bottom">
+                                        <h:outputText value="#{listDemoView.price}" styleClass="product-price">
+                                            <f:convertNumber currencySymbol="$" type="currency" />
+                                        </h:outputText>
+                                        <h:form>
+                                            <h:commandButton value="redirect" action="annonceDetail.xhtml?{annonce}" actionListener="#{listDemoView.sendDetaisAnnonce(annonce)}"  /><br/>
 
-                    <p:dataView var="annonce" value="#{listDemoView.annonces}" gridIcon="pi pi-th-large" listIcon="pi pi-bars"
-                                paginator="true" rows="10" layout="grid" paginatorPosition="bottom">
-                        <p:dataViewGridItem>
-                            <div class="product-grid-item card">
-                                <div class="product-grid-item-top">
-                                    <div>
-                                        <i class="pi pi-tag product-category-icon"></i>
-                                        <span class="product-category">#{annonce.car.matricule}</span>
+                                        </h:form>
+
+                                        <p:commandButton value="detais" icon="pi pi-plus" />
                                     </div>
                                 </div>
-                                <div class="product-grid-item-content">
-                                    <!--<p:graphicImage name="images/car/" library="demo" />-->
-                                    <div class="product-name">#{annonce.car.model}</div>
-                                    <div class="product-description">#{annonce.car.prix}</div>
-                                </div>
-                                <div class="product-grid-item-bottom">
-                                    <h:outputText value="#{listDemoView.price}" styleClass="product-price">
-                                        <f:convertNumber currencySymbol="$" type="currency" />
-                                    </h:outputText>
-                                    <h:form>
-                                        <h:commandButton value="redirect" action="annonceDetail.xhtml?{annonce}" actionListener="#{listDemoView.sendDetaisAnnonce(annonce)}"  /><br/>
-
-                                    </h:form>
-
-                                    <p:commandButton value="detais" icon="pi pi-plus" />
-                                </div>
-                            </div>
-                        </p:dataViewGridItem>
-<!--
-                        <p:dataViewListItem>
-                            <div class="product-list-item">
-                                <p:graphicImage name="images/car/" library="demo" />
-                                <div class="product-list-detail">
-                                    <div class="product-name"></div>
-                                    <div class="product-description"></div>
-                                    <i class="pi pi-tag product-category-icon"></i><span class="product-category">lalal</span>
-                                </div>
-                                <div class="product-list-action">
-                                    <h:outputText value="" styleClass="product-price">
-                                        <f:convertNumber currencySymbol="$" type="currency" />
-                                    </h:outputText>
-                                </div>
-                            </div>
-                        </p:dataViewListItem>-->
-                    </p:dataView>
+                            </p:dataViewGridItem>
+                        </p:dataView>
+                                                
+                    </h:panelGroup>
                 </div>
             </div>
 
 
         </div>
     </ui:define>
-
 </ui:composition>

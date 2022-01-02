@@ -43,7 +43,16 @@ public class Car implements Serializable {
     private double kilometrage;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dateAchat;
+    private Double prix;
 
+    public Double getPrix() {
+        return prix;
+    }
+
+    public void setPrix(Double prix) {
+        this.prix = prix;
+    }
+    
 
     @OneToMany(mappedBy = "car")
     private List<DemandeLocationDetail> demandeLocationDetails;
