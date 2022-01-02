@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+            <link rel="shortcut icon" href="resources/freya-layout/images/favicon.ico" type="image/x-icon"></link>
+        </f:facet>
+        <title> Freya</title>
+    </h:head>
+
+
+    <h:body styleClass="landing-body">
+
+        <div class="landing-wrapper">
+            <div class="landing-topbar">
+                <div class="landing-topbar-left">
+                    <h:link id="logolink" outcome="/dashboard" styleClass="logo">
+                        <p:graphicImage name="images/logo-freya.svg"  library="freya-layout" />
+                    </h:link>
+
+                    <ul class="landing-menu">
+                        <li>
+                            <a href="#" id="landing-menu-close">
+                                <i class="pi pi-times"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#home">Home</a>
+                        </li>
+                        <li>
+                            <a href="#features">Features</a>
+                        </li>
+                        <li>
+                            <a href="#pricing">Pricing</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="landing-topbar-right">
+                    <a href="./login.xhtml" class="second-menubutton">Login</a>
+                    <p:linkButton  type="button" outcome="/login"  value="Sign up" styleClass="landing-button" />
+                    <a href="#"  id="landing-menu-button">
+                        <i class="pi pi-bars"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div id="home"  class="landing-banner">
+                <div class="landing-banner-content">
+                    <span class="title">Simple, bold and fresh.</span>
+                    <h3>What we build for you is one of its kind. <br/>
+                        Simplicity is now coming to PrimeFaces, with Freyja</h3>
+                    <p:commandButton type="button" value="See pricing" styleClass="landing-button"  />
+                    <p:linkButton  type="button" outcome="/list"  value="See Cars" styleClass="landing-button" />
+
+                </div>
+            </div>
+            <div class="p-col-12">
+                <div class="card">
+                    <h1>#{createAnnonceView.openNew()}</h1>
+                    <h4>Création d'une annonce</h4>
+                    <h5>Les informations du voiture : </h5>
+                    <h:form enctype="multipart/form-data">
+
+                        <div class="ui-fluid p-formgrid p-grid">
+                            <div class="p-field p-col-12 p-md-4">
+                                <p:outputLabel for="matricule" value="Matricule" />
+                                <p:inputText id="matricule" value="#{createAnnonceView.annonce.car.matricule}" />
+                            </div>
+                            <div class="p-field p-col-12 p-md-4">
+                                <p:outputLabel for="transmission" value="Transmission" />
+                                <p:selectOneMenu id="transmission" value="#{createAnnonceView.annonce.car.transmission.id}">
+                                    <f:selectItem itemLabel="Select One" itemValue="#{null}" noSelectionOption="true"/>
+                                    <f:selectItems   value="#{createAnnonceView.transmissions}" var="transmission" itemLabel="#{transmission.libelle}" itemValue="#{transmission.id}" />
+                                </p:selectOneMenu>
+                            </div>
+                            <div class="p-field p-col-12 p-md-4">
+                                <p:outputLabel for="fuel" value="Type de carone" />
+                                <p:selectOneMenu id="fuel" value="#{createAnnonceView.annonce.car.fuel.id}">
+                                    <f:selectItem itemLabel="Select One" itemValue="#{null}" noSelectionOption="true"/>
+                                    <f:selectItems   value="#{createAnnonceView.fuels}" var="fuel" itemLabel="#{fuel.libelle}" itemValue="#{fuel.id}" />
+                                </p:selectOneMenu>
+                            </div>
+                            <div class="p-field p-col-12 p-md-4">
+                                <p:outputLabel for="city" value="Ville" />
+                                <p:selectOneMenu id="city" value="#{createAnnonceView.annonce.ville}" >
+                                    <f:selectItem itemLabel="Select One" itemValue="#{null}" noSelectionOption="true"/>
+                                    <f:selectItem itemLabel="kech" itemValue="Marrakech" />
+                                    <f:selectItem itemLabel="casa" itemValue="Casablanca" />
+                                    <f:selectItem itemLabel="aga" itemValue="Agadir" />
+                                    <f:selectItem itemLabel="rabat" itemValue="Rabat" />
+                                </p:selectOneMenu>
+                            </div>
+                            <div class="p-field p-col-12 p-md-4">
+                                <p:outputLabel for="model" value="Model" />
+                                <p:selectOneMenu id="model" value="#{createAnnonceView.annonce.car.model.id}">
+                                    <f:selectItem itemLabel="Select One" itemValue="#{null}" noSelectionOption="true"/>
+                                    <f:selectItems   value="#{createAnnonceView.models}" var="model" itemLabel="#{model.libelle}" itemValue="#{model.id}" />
+                                </p:selectOneMenu>
+                            </div>
+
+                            <div class="p-field p-col-12 p-md-4">
+                                <p:outputLabel for="nbrPorte" value="Nombre des portes"/>
+                                <p:inputNumber id="nbrPorte" value="#{createAnnonceView.annonce.car.nombrePorte}" />
+                            </div>
+                            <div class="p-field p-col-12 p-md-4">
+                                <p:outputLabel for="puissanceFiscale" value="Puissance Fiscale"/>
+                                <p:inputNumber id="puissanceFiscale" value="#{createAnnonceView.annonce.car.puissanceFiscale}" />
+                            </div>    
+                            <div class="p-field p-col-12 p-md-4">
+                                <p:outputLabel for="kilometrage" value="Kilometrage"/>
+                                <p:inputNumber id="kilometrage" value="#{createAnnonceView.annonce.car.kilometrage}" />
+                            </div>
+                            <div class="p-field p-col-12 p-md-4">
+                                <p:outputLabel for="dateAchat" value="Date Achat "/>
+                                <p:datePicker id="dateAchat"  value="#{createAnnonceView.annonce.car.dateAchat}"  />
+                            </div>  
+
+                            <h5>Les images du voiture :  </h5> 
+                            <div class="card">
+                                <h:form enctype="multipart/form-data">
+                                    <p:fileUpload value="#{createAnnonceView.files}" multiple="true" mode="simple" />
+                                    <p:commandButton value="Submit" action="#{createAnnonceView.save}" ajax="false"/>
+                                </h:form>
+                            </div>
+
+
+                        </div>
+                    </h:form>
+                </div>
+            </div>
+
+            <div class="layout-footer">
+                <div class="p-grid">
+                    <div class="p-col-12  p-lg-4">
+                        <div class="p-grid">
+                            <div class="p-col-6 ">
+                                <span class="footer-menutitle">SITE MAP</span>
+                                <ul>
+                                    <li><a href="dashboard.xhtml">Dashboard</a></li>
+                                    <li><a href="crud.xhtml">CRUD</a></li>
+                                    <li><a href="invoice.xhtml">Invoice</a></li>
+                                    <li><a href="help.xhtml">Help</a></li>
+                                </ul>
+                            </div>
+                            <div class="p-col-6">
+                                <span class="footer-menutitle"></span>
+                                <ul>
+                                    <li><a href="calendar.xhtml">Calendar</a></li>
+                                    <li><a href="widgets.xhtml">Widgets</a></li>
+                                    <li><a href="documentation.xhtml">Documentation</a></li>
+                                    <li><a href="https://www.primefaces.org/store">Buy Now</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="p-col-12 p-md-6 p-lg-3">
+                        <span class="footer-menutitle">CONTACT US</span>
+                        <ul>
+                            <li>(415) 931-1624 794</li>
+                            <li>Mcallister St San Francisco,</li>
+                            <li>California(CA), 94102</li>
+                        </ul>
+                    </div>
+                    <div class="p-col-12 p-md-6 p-lg-5">
+                        <span class="footer-menutitle">NEWSLETTER</span>
+                        <span class="footer-subtitle">Join our newslatter to get notification about the new features.</span>
+                        <h:form>
+                            <div class="newsletter-input">
+                                <p:inputText placeholder="email adress" />  
+                                <p:commandButton value="Join" styleClass="secondary-button "/>       
+                            </div>
+                        </h:form>
+                    </div>
+                    <div class="p-col-12">
+                        <div class="footer-bottom">
+                            <h4>freya</h4>
+                            <h6>Copyright 2020</h6>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="landing-mask"></div>
+        </div>
+    </h:body>
+
+    <h:outputStylesheet name="css/primeflex.min.css" library="freya-layout" />
+    <h:outputStylesheet name="css/primeicons.css" library="freya-layout" />
+    <h:outputStylesheet name="css/#{guestPreferences.layout}.css" library="freya-layout" />
+    <script type="text/javascript">
+        $(document).ready(function ($) {
+            function parallax() {
+                var scrolled = $(window).scrollTop();
+                $('.landing-banner').css('top', -(scrolled * 0.01) + '%');
+                $('.landing-banner-content').css('top', +(scrolled * -0.065) + '%');
+                $('.parallax-box .p-lg-3:odd').css('transform', 'translateY(' + (scrolled * 0.01) + '%)');
+                $('.parallax-box .p-lg-3:even').css('margin-top', -(scrolled * 0.01) + '%');
+            }
+            ;
+            $(window).scroll(function (e) {
+                parallax();
+            });
+
+        });
+
+        hideMenu = function () {
+            $('.landing-menu').removeClass('fadeInDown').addClass('fadeOutUp');
+
+            setTimeout(function () {
+                $('.landing-wrapper').removeClass('landing-menu-active');
+                $('.landing-menu').removeClass('fadeOutUp');
+                $(document.body).removeClass('block-scroll');
+            }, 150);
+        }
+
+        showMenu = function () {
+            $('.landing-wrapper').addClass('landing-menu-active');
+            $('.landing-menu').addClass('fadeInDown');
+            $(document.body).addClass('block-scroll');
+        }
+
+        $(function () {
+            $('#landing-menu-button').on('click', function (e) {
+                var wrapper = $('.landing-wrapper');
+
+                if (wrapper.hasClass('landing-menu-active'))
+                    hideMenu();
+                else
+                    showMenu();
+
+                e.preventDefault();
+            });
+
+            $('.landing-menu').find('a').on('click', function (e) {
+                hideMenu();
+            });
+        });
+    </script>
+    <script>
+        //<![CDATA[
+        var $this = this;
+
+        $(document).ready(function () {
+            $('html').animate({scrollTop: 0}, 1);
+            $('body').animate({scrollTop: 0}, 1);
+        });
+
+        function isMobile() {
+            return $(window).width() <= 896;
+        }
+
+        /* Scroll Animate */
+        $('a[href*="#"]:not([href="#"])').click(function () {
+            var target = $(this.hash);
+            if (target.length) {
+                $('html, body').animate({
+                    scrollTop: target.offset().top - 100
+                }, 500);
+                if (isMobile()) {
+                    $('html, body').animate({
+                        scrollTop: target.offset().top
+                    }, 500);
+                }
+                return false;
+            }
+        });//]]>
+    </script>
+
+</html>

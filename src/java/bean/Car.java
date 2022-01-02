@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -33,28 +34,17 @@ public class Car implements Serializable {
     @ManyToOne
     private Fuel fuel;
     @ManyToOne
-    private Modele model;
-    @OneToMany(mappedBy = "car")
+    private Modele model ;
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "car")
     private List<Representative> representatives;
     @ManyToOne
-    private Transmission transmission;
+    private Transmission transmission= new Transmission();
     private int nombrePorte;
     private int puissanceFiscale;
     private double kilometrage;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dateAchat;
     private double prix;
-
-    @OneToMany(mappedBy = "car")
-    private List<DemandeLocationDetail> demandeLocationDetails;
-
-    public List<DemandeLocationDetail> getDemandeLocationDetails() {
-        return demandeLocationDetails;
-    }
-
-    public void setDemandeLocationDetails(List<DemandeLocationDetail> demandeLocationDetails) {
-        this.demandeLocationDetails = demandeLocationDetails;
-    }
 
     public String getMatricule() {
         return matricule;
@@ -73,6 +63,8 @@ public class Car implements Serializable {
     }
 
     public Fuel getFuel() {
+        if(this.fuel == null)
+            this.fuel= new Fuel();
         return fuel;
     }
 
@@ -81,6 +73,8 @@ public class Car implements Serializable {
     }
 
     public Modele getModel() {
+        if( this.model==null)
+            this.model = new Modele();
         return model;
     }
 
@@ -167,7 +161,9 @@ public class Car implements Serializable {
 
     @Override
     public String toString() {
-        return matricule;
+        return "Car{" + "id=" + id + ", matricule=" + matricule + ", fuel=" + fuel + ", model=" + model + ", representatives=" + representatives + ", transmission=" + transmission + ", nombrePorte=" + nombrePorte + ", puissanceFiscale=" + puissanceFiscale + ", kilometrage=" + kilometrage + ", dateAchat=" + dateAchat + ", prix=" + prix + '}';
     }
+
+   
 
 }

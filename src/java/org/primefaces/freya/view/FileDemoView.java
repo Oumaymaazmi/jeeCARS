@@ -24,15 +24,14 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import org.primefaces.model.file.UploadedFile;
+import org.primefaces.model.file.UploadedFiles;
 
 @Named
-@RequestScoped
+@RequestScoped  
 public class FileDemoView {
-    
+
     private UploadedFile file;
-   
-           
-    
+    private UploadedFiles files;
 
     public UploadedFile getFile() {
         return file;
@@ -42,15 +41,27 @@ public class FileDemoView {
         this.file = file;
     }
 
+    public UploadedFiles getFiles() {
+        return files;
+    }
 
-    public void upload() {
-        if (file != null) {
-            FacesMessage message = new FacesMessage("Successful", file.getFileName() + " is uploaded.");
-            FacesContext.getCurrentInstance().addMessage(null, message);
-            
-        }
+    public void setFiles(UploadedFiles files) {
+        this.files = files;
     }
     
+
+    public void upload() {
+       if (files != null) {
+            for (UploadedFile f : files.getFiles()) {
+                System.out.println("fillllle "+ f.getFileName());
+                FacesMessage message = new FacesMessage("Successful", f.getFileName() + " is uploaded.");
+                FacesContext.getCurrentInstance().addMessage(null, message);
+            }
+        }
+    }
+
+   
+
     public void handleFileUpload(FileUploadEvent event) {
         FacesMessage msg = new FacesMessage("Successful", event.getFile().getFileName() + " is uploaded.");
         FacesContext.getCurrentInstance().addMessage(null, msg);

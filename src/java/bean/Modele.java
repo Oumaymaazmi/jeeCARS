@@ -28,6 +28,8 @@ public class Modele implements Serializable {
     private Marque marque;
 
     public Marque getMarque() {
+        if( this.marque==null)
+            this.marque = new Marque();
         return marque;
     }
 
@@ -73,7 +75,9 @@ public class Modele implements Serializable {
 
     @Override
     public String toString() {
-        return libelle;
+        return "Modele{" + "id=" + id + '}';
     }
+
+    
 
 }

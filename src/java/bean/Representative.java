@@ -7,6 +7,7 @@ package bean;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,7 +25,6 @@ public class Representative implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-     private String name;
     private String image;
     @ManyToOne
     private Car car;
@@ -32,19 +32,12 @@ public class Representative implements Serializable {
     public Representative(String image) {
         this.image = image;
     }
-    
-    
-
-    public String getName() {
-        return name;
-    }
 
     public Representative() {
     }
 
-    public Representative(Long id, String name) {
+    public Representative(Long id) {
         this.id = id;
-        this.name = name;
     }
 
     public String getImage() {
@@ -56,6 +49,8 @@ public class Representative implements Serializable {
     }
 
     public Car getCar() {
+        if(this.car == null)
+            this.car = new Car();
         return car;
     }
 
@@ -63,21 +58,6 @@ public class Representative implements Serializable {
         this.car = car;
     }
 
-  
-
-    
-
-   
-
-   
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-   
-
-    
     public Long getId() {
         return id;
     }
@@ -108,7 +88,9 @@ public class Representative implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.Representative[ id=" + id + " ]";
+        return "Representative{" + "image=" + image + '}';
     }
+
     
+
 }

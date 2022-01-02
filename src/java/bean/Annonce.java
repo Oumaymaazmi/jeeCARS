@@ -7,6 +7,7 @@ package bean;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,12 +28,22 @@ public class Annonce implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Temporal(javax.persistence.TemporalType.DATE)
-    private Date dateAnnonce;
-    private String etat;
+    private Date dateAnnonce = new Date();
+    private String etat = "attente";
     @ManyToOne
-    private User user;
-    @OneToOne
+    private User user = new User();
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Car car;
+    private String ville;
+
+    public String getVille() {
+        return ville;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
+    }
+
     public Long getId() {
         return id;
     }
@@ -66,6 +77,9 @@ public class Annonce implements Serializable {
     }
 
     public Car getCar() {
+        if (this.car == null) {
+            this.car = new Car();
+        }
         return car;
     }
 
@@ -95,7 +109,9 @@ public class Annonce implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.Annonce[ id=" + id + " ]";
+        return "Annonce{" + "id=" + id + ", dateAnnonce=" + dateAnnonce + ", etat=" + etat + ", user=" + user + ", car=" + car + ", ville=" + ville + '}';
     }
+
     
+
 }

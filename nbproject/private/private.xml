@@ -4,23 +4,44 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/landing.xhtml</file>
-            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/src/java/service/CarFacade.java</file>
-            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/WEB-INF/menu.xhtml</file>
-            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/crud.xhtml</file>
-            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/src/java/org/primefaces/freya/view/CrudDemoView.java</file>
+            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/resources/primefaces-freya-avocado-dark/theme.css</file>
+            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/resources/sass/theme/_theme_dark.scss</file>
+            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/resources/demo/css/demo-light.css</file>
             <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/src/java/org/primefaces/freya/view/ListDemoView.java</file>
-            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/src/java/bean/Representative.java</file>
-            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/WEB-INF/template.xhtml</file>
-            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/src/java/bean/Annonce.java</file>
+            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/resources/freya-layout/images/logo-freya-single.svg</file>
+            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/resources/freya-layout/images/avatar-profilemenu.png</file>
             <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/src/java/service/AnnonceFacade.java</file>
-            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/list.xhtml</file>
-            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/src/java/service/AbstractFacade.java</file>
+            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/grid.xhtml</file>
             <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/src/java/bean/Car.java</file>
             <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/WEB-INF/rightpanel.xhtml</file>
             <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/annonceDetail.xhtml</file>
             <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/src/java/org/primefaces/freya/view/AnnonceDetail.java</file>
             <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/WEB-INF/pretty-config.xml</file>
+            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/typography.xhtml</file>
+            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/resources/freya-layout/images/logo-freya.svg</file>
+            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/resources/demo/css/flags/flags.css</file>
+            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/resources/freya-layout/icons/primeicons.svg</file>
+            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/src/java/service/CarFacade.java</file>
+            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/resources/demo/images/icon/diesel-1.png</file>
+            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/WEB-INF/menu.xhtml</file>
+            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/crud.xhtml</file>
+            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/src/java/org/primefaces/freya/view/CrudDemoView.java</file>
+            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/src/java/bean/Representative.java</file>
+            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/icons.xhtml</file>
+            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/crudMarque.xhtml</file>
+            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/overlay.xhtml</file>
+            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/button.xhtml</file>
+            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/resources/demo/css/demo-dark.scss</file>
+            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/WEB-INF/template.xhtml</file>
+            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/src/java/bean/Annonce.java</file>
+            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/list.xhtml</file>
+            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/resources/demo/images/icon/icon.png</file>
+            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/resources/freya-layout/images/logo-freya-white.svg</file>
+            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/src/java/service/AbstractFacade.java</file>
+            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/resources/demo/css/_demo_common.scss</file>
+            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/invoice.xhtml</file>
+            <file>file:/C:/Users/a/OneDrive/Documents/javaExemple/jee/CarsJee-main/web/resources/demo/css/demo-dark.css</file>
         </group>
     </open-files>
 </project-private>

@@ -14,14 +14,20 @@
                     <h5>Advanced</h5>
                     <h:form>
                         <p:fileUpload listener="#{fileDemoView.handleFileUpload}" mode="advanced" 
-                                     allowTypes="/(\.|\/)(gif|jpe?g|png)$/" style="width:100%" />
-    
+                                      allowTypes="/(\.|\/)(gif|jpe?g|png)$/" style="width:100%" />
+
                         <p:growl id="messages" showDetail="true" />
                     </h:form>
 
                     <h5>Basic</h5>
                     <h:form enctype="multipart/form-data">
                         <p:fileUpload value="#{fileDemoView.file}" mode="simple" skinSimple="true"/>
+                    </h:form>
+                </div>
+                <div class="card">
+                    <h:form enctype="multipart/form-data">
+                        <p:fileUpload value="#{fileDemoView.files}" multiple="true" mode="simple" />
+                        <p:commandButton value="Submit" action="#{fileDemoView.upload}" ajax="false"/>
                     </h:form>
                 </div>
             </div>

@@ -11,56 +11,51 @@
         <div class="p-grid list-demo">
             <div class="p-col-12">
                 <div class="card">
-                    <h5>DataView</h5>
-                    <p:dataView var="product" value="#{listDemoView.products}" gridIcon="pi pi-th-large" listIcon="pi pi-bars"
-                        paginator="true" rows="10" layout="grid" paginatorPosition="bottom">
-                        <p:dataViewGridItem>
-                            <div class="product-grid-item card">
-                                <div class="product-grid-item-top">
-                                    <div>
-                                        <i class="pi pi-tag product-category-icon"></i>
-                                        <span class="product-category">#{product.category}</span>
-                                    </div>
-                                    <!--<span class="product-badge status-#{product.inventoryStatus.name().toLowerCase()}">#{product.inventoryStatus.text}</span>-->
-                                </div>
-                                <div class="product-grid-item-content">
-                                    <p:graphicImage name="images/car/Audi.png" library="demo" />
-                                    <div class="product-name">#{product.name}</div>
-                                    <div class="product-description">#{product.description}</div>
-                                    <p:rating readonly="true" value="#{product.rating}" />
-                                </div>
-                                <div class="product-grid-item-bottom">
-                                    <h:outputText value="#{product.price}" styleClass="product-price">
-                                        <f:convertNumber currencySymbol="$" type="currency" />
-                                    </h:outputText>
-                                    <p:commandButton type="button" icon="pi pi-shopping-cart" disabled="#{product.inventoryStatus == 'OUTOFSTOCK'}"/>
-                                </div>
+                    <h5>Our Annonce </h5>
+                    <h1>#{listDemoView1.price}</h1>
+
+                    <p:dataTable id="annonces" var="annonce" value="#{listDemoView1.annonces}" reflow="true" styleClass="products-table"
+                                 selection="#{listDemoView1.selectedAnnonce}" rowKey="#{annonce.id}" paginator="true" rows="10" rowSelectMode="add" paginatorPosition="bottom">
+                        <f:facet name="header">
+                            <div class="products-table-header">
+                                <span style="font-weight: bold">Annonces</span>
+
+                                <span class="filter-container ui-input-icon-left">
+                                    <i class="pi pi-search"></i>
+                                    <p:inputText id="globalFilter" onkeyup="PF('dtAnnonces').filter()" placeholder="Search" />
+                                </span>
                             </div>
-                        </p:dataViewGridItem>
-                
-                        <p:dataViewListItem>
-                            <div class="product-list-item">
-                                <p:graphicImage name="images/product/#{product.image}" library="demo" />
-                                <div class="product-list-detail">
-                                    <div class="product-name">#{product.name}</div>
-                                    <div class="product-description">#{product.description}</div>
-                                    <p:rating readonly="true" value="#{product.rating}" />
-                                    <i class="pi pi-tag product-category-icon"></i><span class="product-category">#{product.category}</span>
-                                </div>
-                                <div class="product-list-action">
-                                    <h:outputText value="#{product.price}" styleClass="product-price">
-                                        <f:convertNumber currencySymbol="$" type="currency" />
-                                    </h:outputText>
-                                    <p:commandButton type="button" icon="pi pi-shopping-cart" value="Add to Cart" disabled="#{product.inventoryStatus == 'OUTOFSTOCK'}"/>
-                                    <span class="product-badge status-#{product.inventoryStatus.name().toLowerCase()}">#{product.inventoryStatus.text}</span>
-                                </div>
-                            </div>
-                        </p:dataViewListItem>
-                    </p:dataView>
+                        </f:facet>
+
+                 
+                        <p:column headerText="ID" sortBy="#{annonce.id}" >
+                            <h:outputText value="#{annonce.id}" />
+                        </p:column>
+                        <p:column headerText="date Achat" sortBy="#{annonce.dateAnnonce}" >
+                            <h:outputText value="#{annonce.dateAnnonce}" />
+                        </p:column>
+                        <p:column headerText="ville" sortBy="#{annonce.ville}" >
+                            <h:outputText value="#{annonce.ville}" />
+                        </p:column>
+                        <p:column headerText="User" sortBy="#{annonce.user.firstName}" >
+                            <h:outputText value="#{annonce.user.firstName}" />
+                        </p:column>
+
+                        <p:column exportable="false" headerText="Actions" >
+                         <h:form>
+                                <h:commandButton value="detais" action="annonceDetail.xhtml?faces-redirect=true"  actionListener="#{annonceDetail.sendData}">
+                                    <f:attribute name="detail" value="#{annonce}" />
+                                </h:commandButton>
+                         </h:form>
+                        </p:column>
+
+                      
+                    </p:dataTable>
+
                 </div>
             </div>
 
-            
+
         </div>
     </ui:define>
 

@@ -62,7 +62,9 @@ public class Fuel implements Serializable {
 
     @Override
     public String toString() {
-        return libelle;
+        return "Fuel{" + "id=" + id + '}';
     }
+
+  
     
 }

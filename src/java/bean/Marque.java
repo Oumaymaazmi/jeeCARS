@@ -64,7 +64,9 @@ public class Marque implements Serializable {
 
     @Override
     public String toString() {
-        return libelle;
+        return "Marque{" + "id=" + id + '}';
     }
+
+    
 
 }

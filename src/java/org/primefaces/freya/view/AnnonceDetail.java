@@ -75,7 +75,7 @@ public class AnnonceDetail implements Serializable {
     }
 
     public void sendData(ActionEvent event) {
-
+        System.out.println("ana dkhalt ");
         Annonce detaill = (Annonce) event.getComponent().getAttributes().get("detail");
         this.setDetail(detaill);
         System.out.println("image " + detaill.getCar().getRepresentatives().size());

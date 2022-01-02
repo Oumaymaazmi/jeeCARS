@@ -18,6 +18,7 @@
                             <div>
                                 <p:commandButton value="New" icon="pi pi-plus" actionListener="#{crudDemoView.openNew}" update="manage-product-content" oncomplete="PF('manageProductDialog').show()" 
                                                  styleClass="success-button" style="margin-right: .5rem" />
+                               
                                 <p:commandButton id="delete-cars-button" value="#{crudDemoView.deleteButtonMessage}" icon="pi pi-trash" actionListener="#{crudDemoView.deleteSelectedCars()}" 
                                                  styleClass="danger-button" disabled="#{!crudDemoView.hasSelectedCars()}" update="@this">
                                     <p:confirm header="Confirmation" message="Delete the selected cars?" icon="pi pi-exclamation-triangle" />
@@ -51,7 +52,6 @@
                             <p:ajax event="rowUnselectCheckbox" update=":form:delete-cars-button" />
                             <p:ajax event="toggleSelect" update=":form:delete-cars-button" />
 
-                            <p:column selectionMode="multiple" exportable="false"></p:column>
                             <p:column exportable="false">
                                 <p:rowToggler />
                             </p:column>
