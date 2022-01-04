@@ -66,6 +66,7 @@ public class AnnonceFacade extends AbstractFacade<Annonce> {
             });*/
         }
     }
+   
 
     /*public void save(Annonce annonce) {
         if (annonce != null) {

@@ -42,8 +42,7 @@
                                     </span>
                                 </div>
                             </f:facet>
-
-                            <p:ajax event="rowToggle" listener="#{crudMarqueView.onRowToggle}" />
+               <p:ajax event="rowToggle" listener="#{crudMarqueView.onRowToggle}" />
                             <p:ajax event="rowSelect" update=":form:delete-marques-button" />
                             <p:ajax event="rowUnselect" update=":form:delete-marques-button" />
                             <p:ajax event="rowSelectCheckbox" update=":form:delete-marques-button" />
@@ -54,6 +53,7 @@
                             <p:column exportable="false">
                                 <p:rowToggler />
                             </p:column>
+                         
                             <p:column headerText="ID" sortBy="#{marque.id}" filterBy="#{marque.id}">
                                 <h:outputText value="#{marque.id}" />
                             </p:column>

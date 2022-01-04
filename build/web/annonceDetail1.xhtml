@@ -1,0 +1,201 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <ui:define name="title">Lists</ui:define>
+
+    <ui:define name="content">
+        <div class="p-grid list-demo">
+            <div class=" p-col-8 p-lg-8" >
+                <div class=" header">
+                    <div class="card">
+                        <p:carousel value="#{annonceDetail1.detail.car.representatives}" var="carImage" circular="true" 
+                                    numVisible="1" 
+                                    >
+                            <div class="product-item">
+                                <div class="product-item-content">
+                                    <div class="p-mb-12">
+                                        <p:graphicImage name="demo/images/annonceCar/#{carImage.image}" styleClass="product-image"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </p:carousel>
+                    </div>
+                    
+                    <div class="card ">
+                        <div class="invoice">
+                            <div class="p-col-12">
+                                <div class="invoice-company">
+                                    <div class="company-name">
+                          <c:if test="#{annonceDetail1.detail.etat eq 'attente'}">
+                          <h:form> 
+                          <p:commandButton value="Valider"  style="margin-right:8px;"  actionListener="#{annonceDetail1.validerAnnonce}">
+                          </p:commandButton>
+                          <p:commandButton value="Annuler" actionListener="#{annonceDetail1.annulerAnnonce}">
+                          </p:commandButton>
+                         </h:form>
+                          </c:if>
+                           <h3>
+                            PRIX : #{annonceDetail1.detail.car.prix}
+                            </h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-col-4">
+                                <div class="invoice-company">
+
+                                    <div class="company-name">
+                                        <i class="pi pi-map-marker"></i> 
+                                        Marrakech </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-demo">
+                            <div class="p-grid">
+                                <div class="p-col">
+                                    <div class="card grid-item">
+                                        <p:graphicImage  name="demo/images/icon/diesel-1.png"  style="width: 30px" />
+                                        #{annonceDetail1.detail.car.fuel.libelle}
+                                    </div>
+                                </div>
+                                <div class="p-col">
+                                    <div class="card grid-item">
+                                        <p:graphicImage  name="demo/images/icon/moteur.png"  style="width: 30px" />
+                                        #{annonceDetail1.detail.car.puissanceFiscale} CV
+                                    </div>
+                                </div>
+                                <div class="p-col">
+                                    <div class="card grid-item">
+                                        <p:graphicImage  name="demo/images/icon/manuel.png"  style="width: 30px" />
+                                        #{annonceDetail1.detail.car.transmission.libelle}
+                                    </div>
+                                </div>
+                            </div>
+                            <p:separator/>
+                            <div class="p-grid" >
+                                <div class="p-col">
+                                    <div class="p-grid" >
+                                        <div class="p-col">
+                                            <h4 >Kilométrage</h4>
+                                        </div>
+                                        <div class="p-col">
+                                            #{annonceDetail1.detail.car.kilometrage}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-col">
+                                    <div class="p-grid" >
+                                        <div class="p-col">
+                                            <h4 >Model</h4>
+                                        </div>
+                                        <div class="p-col">
+                                            #{annonceDetail1.detail.car.model.libelle}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p:separator/>
+                            <div class="p-grid" >
+                                <div class="p-col">
+                                    <div class="p-grid" >
+                                        <div class="p-col">
+                                            <h4 >Marque</h4>
+                                        </div>
+                                        <div class="p-col">
+                                            #{annonceDetail1.detail.car.model.marque.libelle}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-col">
+                                    <div class="p-grid" >
+                                        <div class="p-col">
+                                            <h4 >Nember Port</h4>
+                                        </div>
+                                        <div class="p-col">
+                                            #{annonceDetail1.detail.car.nombrePorte}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p:separator/>
+                            <div class="p-grid" >
+                                <div class="p-col">
+                                    <div class="p-grid" >
+                                        <div class="p-col">
+                                            <h4 >Date d'achat</h4>
+                                        </div>
+                                        <div class="p-col">
+                                            #{annonceDetail1.detail.car.dateAchat}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-col">
+                                    <div class="p-grid" >
+                                        <div class="p-col">
+                                            <h4 >Matricule</h4>
+                                        </div>
+                                        <div class="p-col">
+                                            #{annonceDetail1.detail.car.matricule}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+            <div class=" p-col-4 p-lg-4">
+                <div class="card">
+                    <div class="p-grid" >
+                        <div class="p-col">
+                            <div>
+                                <p:graphicImage  name="demo/images/icon/icon.png" styleClass="ui-icon ui-icon-bookmark"
+                                                 style="display: block; margin: 0px auto;"/>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-grid p-formgrid" >
+                        <div class="p-col">
+                            <p:commandButton value="Afficher le Nummero" type="button" onclick="PF('dlg').show()" icon="pi pi-external-link"
+                                             style="display: block; margin: 0px auto;" />
+
+                        </div>
+                    </div>
+                    <p:dialog header="Attention" widgetVar="dlg" modal="true" responsive="true" width="350" showEffect="fade" hideEffect="fade">
+                        <p>
+                            Il ne faut jamais envoyer de l’argent à l’avance au vendeur par virement
+                            bancaire ou à travers
+                            une agence de transfert 
+                            d’argent lors de l’achat des biens disponibles sur le site
+                        </p>
+                        <h2>#{annonceDetail1.detail.user.phone}</h2> 
+                        <f:facet name="footer">
+                            <p:commandButton value="Dismiss" type="button" icon="pi pi-check" styleClass="primary-button text-button" onclick="PF('dlg').hide()" />
+                        </f:facet>
+                    </p:dialog>  
+
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+
+    </ui:define>
+
+</ui:composition>

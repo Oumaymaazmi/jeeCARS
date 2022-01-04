@@ -12,7 +12,7 @@
             <div class=" p-col-8 p-lg-8" >
                 <div class=" header">
                     <div class="card">
-                        <p:carousel value="#{annonceDetail.detail.car.representatives}" var="carImage" circular="true" 
+                        <p:carousel value="#{annonceDetail1.detail.car.representatives}" var="carImage" circular="true" 
                                     numVisible="1" 
                                     >
                             <div class="product-item">
@@ -30,7 +30,7 @@
                                 <div class="invoice-company">
                                     <div class="company-name">
                                         <h3>
-                                            PRIX : #{annonceDetail.detail.car.prix}
+                                            PRIX : #{annonceDetail1.detail.car.prix}
                                         </h3></div>
                                 </div>
                             </div>
@@ -48,19 +48,19 @@
                                 <div class="p-col">
                                     <div class="card grid-item">
                                         <p:graphicImage  name="demo/images/icon/diesel-1.png"  style="width: 30px" />
-                                        #{annonceDetail.detail.car.fuel.libelle}
+                                        #{annonceDetail1.detail.car.fuel.libelle}
                                     </div>
                                 </div>
                                 <div class="p-col">
                                     <div class="card grid-item">
                                         <p:graphicImage  name="demo/images/icon/moteur.png"  style="width: 30px" />
-                                        #{annonceDetail.detail.car.puissanceFiscale} CV
+                                        #{annonceDetail1.detail.car.puissanceFiscale} CV
                                     </div>
                                 </div>
                                 <div class="p-col">
                                     <div class="card grid-item">
                                         <p:graphicImage  name="demo/images/icon/manuel.png"  style="width: 30px" />
-                                        #{annonceDetail.detail.car.transmission.libelle}
+                                        #{annonceDetail1.detail.car.transmission.libelle}
                                     </div>
                                 </div>
                             </div>
@@ -72,7 +72,7 @@
                                             <h4 >Kilométrage</h4>
                                         </div>
                                         <div class="p-col">
-                                            #{annonceDetail.detail.car.kilometrage}
+                                            #{annonceDetail1.detail.car.kilometrage}
                                         </div>
                                     </div>
                                 </div>
@@ -82,7 +82,7 @@
                                             <h4 >Model</h4>
                                         </div>
                                         <div class="p-col">
-                                            #{annonceDetail.detail.car.model.libelle}
+                                            #{annonceDetail1.detail.car.model.libelle}
                                         </div>
                                     </div>
                                 </div>
@@ -95,7 +95,7 @@
                                             <h4 >Marque</h4>
                                         </div>
                                         <div class="p-col">
-                                            #{annonceDetail.detail.car.model.marque.libelle}
+                                            #{annonceDetail1.detail.car.model.marque.libelle}
                                         </div>
                                     </div>
                                 </div>
@@ -105,7 +105,7 @@
                                             <h4 >Nember Port</h4>
                                         </div>
                                         <div class="p-col">
-                                            #{annonceDetail.detail.car.nombrePorte}
+                                            #{annonceDetail1.detail.car.nombrePorte}
                                         </div>
                                     </div>
                                 </div>
@@ -118,7 +118,7 @@
                                             <h4 >Date d'achat</h4>
                                         </div>
                                         <div class="p-col">
-                                            #{annonceDetail.detail.car.dateAchat}
+                                            #{annonceDetail1.detail.car.dateAchat}
                                         </div>
                                     </div>
                                 </div>
@@ -128,7 +128,7 @@
                                             <h4 >Matricule</h4>
                                         </div>
                                         <div class="p-col">
-                                            #{annonceDetail.detail.car.matricule}
+                                            #{annonceDetail1.detail.car.matricule}
                                         </div>
                                     </div>
                                 </div>
@@ -167,7 +167,7 @@
                             une agence de transfert 
                             d’argent lors de l’achat des biens disponibles sur le site
                         </p>
-                        <h2>#{annonceDetail.detail.user.phone}</h2> 
+                        <h2>#{annonceDetail1.detail.user.phone}</h2> 
                         <f:facet name="footer">
                             <p:commandButton value="Dismiss" type="button" icon="pi pi-check" styleClass="primary-button text-button" onclick="PF('dlg').hide()" />
                         </f:facet>

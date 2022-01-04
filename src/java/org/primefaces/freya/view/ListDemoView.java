@@ -45,7 +45,6 @@ import service.ModeleFacade;
 
 @ManagedBean
 @SessionScoped
-
 public class ListDemoView implements Serializable {
 
     private List<Annonce> annonces;

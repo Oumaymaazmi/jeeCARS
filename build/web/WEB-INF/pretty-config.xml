@@ -7,5 +7,9 @@ http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
         <pattern value="/annonceDetail.xhtml" />
         <view-id value="/annonceDetail.xhtml" />
     </url-mapping>
+   <url-mapping id="example1" >
+        <pattern value="/annonceDetail1.xhtml" />
+        <view-id value="/annonceDetail1.xhtml" />
+    </url-mapping>
   
 </pretty-config>

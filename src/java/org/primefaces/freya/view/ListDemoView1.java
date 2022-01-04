@@ -108,7 +108,7 @@ public class ListDemoView1 implements Serializable {
         } catch (JMSException ex) {
             Logger.getLogger(ListDemoView1.class.getName()).log(Level.SEVERE, null, ex);
         }
-        this.annonces= annonceFacade.findAll();
+        this.annonces= annonceFacade.findByAttr("etat","attente");
 
     }
 
